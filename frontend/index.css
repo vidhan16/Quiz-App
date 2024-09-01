@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container-fluid {
+    margin : 0px;
+    padding: 0px;
+}
+
+.front-page {
+    background-image: url('/assets/land_back.jpg');
+    /* background-color: green; */
+    height : 100vh;
+    width : 100vw;
+}
+
+.navbar {
+    font-family: Poppins;
+    display: flex;
+    position: relative;
+    padding: 20px;
+    padding-top: 40px;
+}
+
+.left {
+    position: absolute;
+    left:10%;
+    font-size: 2em;
+    color : white;
+}
+
+.middle {
+    position: absolute;
+    left : 44%;
+    right : 43%;
+    display: flex;
+    gap : 2vw;
+    font-size: 1.1rem;
+    /* background-color: red; */
+}
+
+.middle a{
+    text-decoration: none;
+    color: white;
+}
+
+.right {
+    position: absolute;
+    right : 10%;
+}
+
+.right button {
+    border : none;
+    padding: 10px;
+    border-radius : 20px;
+    color: black;
+    background-color: green;
+}
