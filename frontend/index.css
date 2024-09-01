@@ -11,7 +11,7 @@
 }
 
 .front-page {
-    background-image: url('./assets/land_back.jpg');
+    background-image: url('land_back.jpg');
     background-repeat : no-repeat;
     background-size: cover;
     position: relative;
