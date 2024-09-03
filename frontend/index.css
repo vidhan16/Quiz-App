@@ -3,6 +3,7 @@
 * {
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
 }
 
 .container-fluid {
@@ -146,6 +147,76 @@
     border-radius: 40px;
 }
 
+.second_page {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.second_page>h3{
+    color : white;
+    font-weight: 600;
+    text-align: center;
+}
+.companies
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:200px;
+}
+.grid_1 {
+    display: flex;
+    width : 70vw;
+    position: relative;
+    height : 65.8vh;
+    gap : 10px;
+    justify-content: space-between;
+}
+
+.container1{
+    position: absolute;
+    left : 0;
+    width : 48%;
+    height: 100%;
+}
+
+.container1_rev{
+    position: absolute;
+    left : 0;
+    width : 48%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid_1 img{
+    border-radius: 10px;
+    position: absolute;
+    height: 100%;
+    width : 100%;
+}
+
+.container2 {
+    position: absolute;
+    right : 0;
+    height: 100%;
+    width : 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media only screen and (min-width: 750px) {
     .more-options {
         display: none;
@@ -175,7 +246,6 @@
         display: none;
     }
 }
-
 @media only screen and (max-width: 1130px) {
     .welcome-display > :nth-child(1) {
         font-size: 3em;
