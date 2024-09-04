@@ -159,9 +159,8 @@
     color: white;
 }
 
-.second_page>h3{
+.companies > h3{
     color : white;
-    font-weight: 600;
     text-align: center;
 }
 .companies
@@ -180,25 +179,23 @@
 .grid_1 {
     display: flex;
     width : 70vw;
-    position: relative;
-    height : 65.8vh;
-    gap : 10px;
-    justify-content: space-between;
+    height : 32vw;
+    gap : 40px;
+    /* background-color: red; */
 }
 
 .container1{
-    position: absolute;
-    left : 0;
-    width : 48%;
+    width : 100%;
     height: 100%;
+    position: relative;
+
 }
 
 .container1_rev{
-    position: absolute;
-    left : 0;
-    width : 48%;
+    width : 100%;
     height: 100%;
     display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
 }
@@ -211,18 +208,55 @@
 }
 
 .container2 {
-    position: absolute;
-    right : 0;
+    position: relative;
     height: 100%;
-    width : 48%;
+    width : 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
-@media only screen and (min-width: 750px) {
-    .more-options {
-        display: none;
+@media only screen and (max-width: 1050px) {
+    .grid_1 {
+        display: flex;
+        flex-direction: column;
+        width : 50vw;
+        height : 90vw;
+        gap: 20px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .grid_1 {
+        gap : 10px;
+        font-size: 13px;
+    }
+    .grid_1 h3
+    {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .grid_1 {
+        gap : 10px;
+        font-size: 9px;
+    }
+
+    .container2 {
+        align-items: start;
+    }
+
+    .container1_rev {
+        align-items: start;
+    }
+    .grid_1 h3
+    {
+        font-size: 15px;
+    }
+    .features > h3 {
+        font-size: 20px;
     }
 }
 
