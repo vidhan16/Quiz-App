@@ -1,3 +1,4 @@
+AOS.init();
 var typed = new Typed(".auto-type", {
     strings : ["Skills","Knowledge","Level"],
     typeSpeed : 120,
