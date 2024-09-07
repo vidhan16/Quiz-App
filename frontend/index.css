@@ -204,6 +204,7 @@
     position: absolute;
     height: 100%;
     width : 100%;
+    filter: drop-shadow(5px 5px 15px rgb(214, 216, 214));
 }
 
 .container2 {
@@ -242,6 +243,7 @@
     color : black;
     border-radius: 6px;
     border: 3px solid black;
+    outline: 3px solid black;
     padding: 20px;
     /* max-width: 20vw; */
     font-weight: 600;
