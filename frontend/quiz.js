@@ -3,6 +3,23 @@ let correctAnswer = "";
 let questionIndex = 0;
 let questions = [];
 
+let categories = {
+    18 : "Computers",
+    19 : "Mathematics",
+    30 : "Gadgets",
+    17 : "Nature",
+    22 : "Geography",
+    23 : "History",
+    31 : "Anime",
+    27 : "Animals",
+    10 : "Books",
+    24 : "Politics",
+    25 : "Art",
+    11 : "Film"
+}
+let categoryHead = document.querySelector('.category');
+categoryHead.textContent=`${categories[categoryCount]} `;
+
 async function loadQuestions()
 {
     const url = `https://opentdb.com/api.php?amount=5&category=${categoryCount}&type=multiple`;
@@ -86,3 +103,8 @@ for(let i = 0 ; i < optionClick.length ; i++)
         tickMark[i].style.visibility = "visible";
     })
 }
+
+let exitBtn = document.querySelector('.exit');
+exitBtn.addEventListener('click',()=>{
+    window.location.href = '../index.html';
+})

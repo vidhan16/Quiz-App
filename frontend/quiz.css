@@ -19,6 +19,50 @@ body {
     width : 100vw;
 }
 
+.head1{
+    position: absolute;
+    font-size: 60px;
+    top : 7%;
+    left : 5%;
+}
+
+.category {
+    color: #00a86d;
+}
+
+.exit {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right : 4%;
+    top: 7%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 10px;
+    border-radius: 40px;
+    transition: transform 0.3s ease;
+    gap: 5px;
+}
+
+.exitText {
+    display: none;
+    color:#00a86d;
+    transition: transform 0.3s ease;
+    font-size: 22px;
+    font-family: Poppins;
+    font-weight: 500;
+}
+
+.exit:hover {
+    transform: scale(1.2);
+    background-color: white;
+}
+
+.exit:hover .exitText{
+    display: block;
+}
+
 .question_box {
     background-color:#00b577;
     border-radius: 20px;
@@ -28,7 +72,7 @@ body {
 
 .q_content {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 4fr 1fr;
 }
 .question-title {
     font-size: 30px;
@@ -38,22 +82,22 @@ body {
 .options {
     font-size: 20px;
     display: inline-block;
-    min-height: 25vh;
+    padding: 10px;
 }
 
 .options > div {
     background-color: white;
-    margin: 10px;
     margin-left : 15px;
     border-radius: 10px;
-    width:300px;
-    min-height : 70px;
+    width: 40%;
+    margin: 15px;
     display: inline-block;
     border: 3px solid black;
     box-shadow: 1rem 1rem 0 -0.25rem #d0f6e2, 1rem 1rem 0 0 black;
     transition: box-shadow 0.3s ease; 
     cursor: pointer;
     position: relative;
+    padding: 15px;
 }
 
 .options > div:hover {
@@ -80,9 +124,60 @@ body {
 }
 
 .next {
-    /* position: absolute; */
-    /* right : 2%; */
     padding: 20px;
     background-color: white;
     border-radius: 10px;
 }
+
+@media only screen and (max-width: 850px) {
+    .q_content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .head1 {
+        top : 2%;
+        font-size: 40px;
+    }
+
+    .exit {
+        top : 2%;
+        right : 2%;
+    }
+
+    .exit img {
+        height: 40px;
+        width : 40px;
+    }
+    .options {
+        min-height: none;
+    }
+
+    .options > div {
+        width : 80%;
+        font-size: 15px;
+    }
+
+    .question-title {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .question {
+        justify-content: end;
+    }
+
+    .prev {
+        padding: 10px;
+    }
+
+    .next {
+        padding: 10px;
+    }
+
+    .exitText {
+        font-size: 15px;
+        font-weight: 450;
+    }
+}
+
