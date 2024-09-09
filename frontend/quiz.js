@@ -2,6 +2,9 @@ let categoryCount = localStorage.getItem('category');
 let correctAnswer = "";
 let questionIndex = 0;
 let questions = [];
+let totalPoints = [0,0,0,0,0];
+let selectedOptions = [-1,-1,-1,-1,-1];
+
 
 let categories = {
     18 : "Computers",
@@ -50,13 +53,26 @@ function showQuestion()
     correctAnswer = `${questions[questionIndex].correct_answer}`;
     let incorrectAnswers = questions[questionIndex].incorrect_answers;
     let randomno = Math.floor(Math.random() * 4);
-    optionsArr[randomno].innerHTML = correctAnswer + optionsArr[randomno].innerHTML;
+    optionsArr[randomno].innerHTML = correctAnswer;
     let it = 0;
     for(let i = 0 ; i < 4 ; i++)
     {
         if(i != randomno)
         {
-            optionsArr[i].innerHTML = incorrectAnswers[it++] + optionsArr[i].innerHTML;
+            optionsArr[i].innerHTML = incorrectAnswers[it++];
+        }
+    }
+    if(selectedOptions[questionIndex] != -1)
+    {
+        optionsArr[selectedOptions[questionIndex]].style.backgroundColor = "#00a86d";
+        optionsArr[selectedOptions[questionIndex]].style.color = "white";
+    }
+    for(let j = 0 ; j < 4 ; j++)
+    {
+        if(j != selectedOptions[questionIndex])
+        {
+            optionsArr[j].style.backgroundColor = "white";
+            optionsArr[j].style.color = "black";
         }
     }
 }
@@ -64,14 +80,15 @@ function next()
 {
     if(questionIndex == questions.length-1)
     {
+        let sum = 0;
+        for(let i = 0 ; i < totalPoints.length ; i++)
+        {
+            sum+=totalPoints[i];
+        }
+        document.querySelector('.scoreboard').style.visibility = "visible";
+        document.querySelector('.scoredPoints').textContent=`${sum}`;
+        // document.querySelector('question').style.backdropFilter = 'blur(10px)';
         return;
-    }
-    for(let i = 0 ; i < 4 ; i++)
-    {
-        optionsArr[i].innerHTML=
-        `<div class="tick-mark">
-            <img width="24" height="24" src="https://img.icons8.com/material-sharp/24/40C057/checked--v1.png" alt="checked--v1"/>
-        </div>`
     }
     questionIndex++;
     showQuestion();
@@ -82,29 +99,46 @@ function prev()
     {
         return;
     }
-    for(let i = 0 ; i < 4 ; i++)
-    {
-        optionsArr[i].innerHTML=
-        `<div class="tick-mark">
-            <img width="24" height="24" src="https://img.icons8.com/material-sharp/24/40C057/checked--v1.png" alt="checked--v1"/>
-        </div>`
-    }
     questionIndex--;
     showQuestion();
 }
 loadQuestions();
 
-let optionClick = document.querySelectorAll('.options > div');
-let tickMark = document.querySelectorAll('.tick-mark');
-for(let i = 0 ; i < optionClick.length ; i++)
-{
-    optionClick[i].addEventListener('click',()=>{
-        console.log(tickMark[i]);
-        tickMark[i].style.visibility = "visible";
-    })
-}
-
 let exitBtn = document.querySelector('.exit');
 exitBtn.addEventListener('click',()=>{
+    console.log("Exit clicked");
     window.location.href = '../index.html';
 })
+
+let exitBtn1 = document.querySelectorAll('.exit')[1];
+exitBtn1.addEventListener('click',()=>{
+    console.log("Exit clicked");
+    window.location.href = '../index.html';
+})
+
+for(let i = 0 ; i < optionsArr.length ; i++)
+{
+    optionsArr[i].addEventListener('click',()=>{
+        optionsArr[i].style.backgroundColor = "#00a86d";
+        optionsArr[i].style.color = "white";
+        for(let j = 0 ; j < optionsArr.length ; j++)
+        {
+            if(j!=i)
+            {
+                optionsArr[j].style.backgroundColor = "white";
+                optionsArr[j].style.color = "black";
+            }
+        }
+        if(optionsArr[i].textContent == questions[questionIndex].correct_answer)
+        {
+            totalPoints[questionIndex] = 10;
+        }
+        else if(optionsArr[i].textContent != questions[questionIndex].correct_answer)
+        {
+            totalPoints[questionIndex] = 0;
+        }
+        selectedOptions[questionIndex] = i;
+        console.log(totalPoints);
+        console.log(selectedOptions);
+    })
+}
