@@ -203,7 +203,7 @@ body {
     }
 
     .question_box {
-        height: 90%;
+        height: 80%;
         overflow-y: scroll;
     }
 
