@@ -95,6 +95,7 @@ body {
     border: 3px solid black;
     box-shadow: 1rem 1rem 0 -0.25rem #d0f6e2, 1rem 1rem 0 0 black;
     transition: box-shadow 0.3s ease; 
+    transition: transform 0.3s ease; 
     cursor: pointer;
     position: relative;
     padding: 15px;
@@ -115,6 +116,7 @@ body {
     padding: 20px;
     background-color: white;
     border-radius: 10px;
+    transition: transform 0.3s ease; 
 }
 
 .prevButton {
@@ -128,6 +130,7 @@ body {
     padding: 20px;
     background-color: white;
     border-radius: 10px;
+    transition: transform 0.3s ease; 
 }
 
 .scoreboard {
@@ -146,12 +149,16 @@ body {
 .score {
     position: absolute;
     height: 50%;
-    width:60%;
+    width:30%;
     padding: 30px;
     border-radius: 40px;
     text-align: center;
     box-shadow: 0.75rem 0.75rem 0 -0.25rem #d0f6e2, 0.75rem 0.75rem 0 0 black;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @media only screen and (max-width: 850px) {

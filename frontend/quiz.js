@@ -40,9 +40,17 @@ let option4 = document.querySelector('.option-4');
 let nextButton = document.querySelector('.next');
 let prevButton = document.querySelector('.prev');
 nextButton.addEventListener('click',()=>{
+    nextButton.style.transform = "scale(0.97)";
+    setTimeout(() => {
+        nextButton.style.transform = "scale(1)";
+    }, 500);
     next();
 })
 prevButton.addEventListener('click',()=>{
+    prevButton.style.transform = "scale(0.97)";
+    setTimeout(() => {
+        prevButton.style.transform = "scale(1)";
+    }, 500);
     prev();
 })
 
@@ -87,6 +95,8 @@ function next()
         }
         document.querySelector('.scoreboard').style.visibility = "visible";
         document.querySelector('.scoredPoints').textContent=`${sum}`;
+        document.querySelector('.correctAnsCount').textContent=`${sum/10}`;
+        document.querySelector('.incorrectAnsCount').textContent=`${5 - (sum/10)}`;
         // document.querySelector('question').style.backdropFilter = 'blur(10px)';
         return;
     }
@@ -119,6 +129,10 @@ exitBtn1.addEventListener('click',()=>{
 for(let i = 0 ; i < optionsArr.length ; i++)
 {
     optionsArr[i].addEventListener('click',()=>{
+        optionsArr[i].style.transform = "scale(0.97)";
+        setTimeout(() => {
+            optionsArr[i].style.transform = "scale(1)";
+        }, 500);
         optionsArr[i].style.backgroundColor = "#00a86d";
         optionsArr[i].style.color = "white";
         for(let j = 0 ; j < optionsArr.length ; j++)

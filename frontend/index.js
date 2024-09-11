@@ -33,6 +33,10 @@ for(let i = 0 ; i < topics.length ; i++)
     topics[i].addEventListener('click',()=>{
         localStorage.setItem('category',catArr[i]);
         window.location.href = './frontend/quiz.html';
+        topics[i].style.transform = "scale(0.97)";
+        setTimeout(() => {
+            topics[i].style.transform = "scale(1)";
+        }, 500);
         // fetch(`https://opentdb.com/api.php?amount=5&category=${catArr[i]}&difficulty=medium&type=multiple`)
         // .then(response => {
         //     if (!response.ok) {
