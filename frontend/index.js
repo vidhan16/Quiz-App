@@ -6,6 +6,11 @@ var typed = new Typed(".auto-type", {
     loop : true
 })
 
+let loginButton = document.querySelector('.login-button');
+loginButton.addEventListener('click',()=>{
+    window.location.href = './frontend/login.html';
+})
+
 var option_button = document.querySelector('.right > :nth-child(2)');
 var more_options = document.querySelector('.more-options');
 console.log(more_options);
