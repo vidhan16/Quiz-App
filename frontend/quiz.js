@@ -94,10 +94,9 @@ function next()
             sum+=totalPoints[i];
         }
         document.querySelector('.scoreboard').style.visibility = "visible";
-        document.querySelector('.scoredPoints').textContent=`${sum}`;
-        document.querySelector('.correctAnsCount').textContent=`${sum/10}`;
-        document.querySelector('.incorrectAnsCount').textContent=`${5 - (sum/10)}`;
-        // document.querySelector('question').style.backdropFilter = 'blur(10px)';
+        document.querySelector('.scoredPoints').textContent=` ${sum}`;
+        document.querySelector('.correctAnsCount').textContent=` ${sum/10}`;
+        document.querySelector('.incorrectAnsCount').textContent=` ${5 - (sum/10)}`;
         return;
     }
     questionIndex++;

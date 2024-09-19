@@ -37,18 +37,5 @@ for(let i = 0 ; i < topics.length ; i++)
         setTimeout(() => {
             topics[i].style.transform = "scale(1)";
         }, 500);
-        // fetch(`https://opentdb.com/api.php?amount=5&category=${catArr[i]}&difficulty=medium&type=multiple`)
-        // .then(response => {
-        //     if (!response.ok) {
-        //       throw new Error('Network response was not ok ' + response.statusText);
-        //     }
-        //     return response.json();
-        //   })
-        //   .then(data => {
-        //     display_question.textContent=`${data.results[currQuestion].question}`;
-        //   })
-        //   .catch(error => {
-        //     console.error('There has been a problem with your fetch operation:', error);
-        //   });
     })
 }

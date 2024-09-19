@@ -148,8 +148,8 @@ body {
 
 .score {
     position: absolute;
-    height: 50%;
-    width:30%;
+    height: 40vh;
+    width:50vw;
     padding: 30px;
     border-radius: 40px;
     text-align: center;
@@ -159,6 +159,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 3px solid black;
 }
 
 @media only screen and (max-width: 850px) {

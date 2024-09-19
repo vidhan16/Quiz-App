@@ -222,6 +222,7 @@
     color:white;
     font-family: Poppins;
     padding-top : 100px;
+    padding-bottom: 100px;
 }
 
 .topics_parent {
@@ -256,7 +257,97 @@
     box-shadow: 10px 10px #c1fce4;
 }
 
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fdffe0;
+}
+.con_info {
+    display: flex;
+    align-items: center;
+    gap : 10px;
+}
+.img1 {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height : 3vw;
+    width : 3vw;
+    border-radius: 50%;
+}
 
+.img1 img {
+    height : 60%;
+    width : 60%;
+}
+
+.contact_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.message_box {
+    background-color: black;
+    color : white;
+    border-radius: 20px;
+    padding : 30px;
+    height: 20vw;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact {
+    display: flex;
+    gap : 10vw;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins;
+    padding: 10px;
+}
+
+
+
+.message_box input {
+    background-color: transparent;
+    border : none;
+    border-bottom: 2px solid grey;
+    width : 100%;
+    margin-bottom: 5%;
+    /* margin-left: 10%;
+    margin-right: 10%; */
+}
+
+.message_box button {
+    padding: 10px;
+    background-color: #00b577;
+    color : white;
+    width : 100%;
+    border: none;
+    border-radius : 20px;
+}
+
+.contact_head {
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.head_2 {
+    font-size: 32px;
+}
+
+.head_4 {
+    font-size: 25px;
+    color:#00b577;
+    font-weight: 500;
+}
 @media only screen and (max-width: 1050px) {
     .grid_1 {
         display: flex;
