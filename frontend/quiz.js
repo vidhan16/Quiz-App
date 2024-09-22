@@ -1,3 +1,18 @@
+window.addEventListener('DOMContentLoaded', () => {
+    // Load the loader HTML
+    fetch('glassloader.html')
+        .then(response => response.text())
+        .then(html => {
+            document.body.insertAdjacentHTML('afterbegin', html);
+            setTimeout(() => {
+                document.querySelector('.loader-body').style.display = 'none';
+                document.querySelector('.container').style.display = 'block';
+                document.querySelector('.cross-x').style.display = 'block';
+                triggerAnimaitons() ;
+            }, 2000);
+        });
+});
+
 let categoryCount = localStorage.getItem('category');
 let correctAnswer = "";
 let questionIndex = 0;

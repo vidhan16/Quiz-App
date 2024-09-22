@@ -295,8 +295,8 @@
     color : white;
     border-radius: 20px;
     padding : 2vw;
-    height: 20vw;
-    width: 30vw;
+    height:400px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     font-size: 20px;
@@ -321,8 +321,6 @@
     border-bottom: 2px solid grey;
     width : 100%;
     margin-bottom: 5%;
-    /* margin-left: 10%;
-    margin-right: 10%; */
 }
 
 .message_box button {
@@ -348,6 +346,154 @@
     color:#00b577;
     font-weight: 500;
 }
+
+.auth_parent{
+    position: absolute;
+    height: 100vh;
+    width : 100vw;
+    background-color: rgba(255, 255, 255, 0.253);
+    z-index : 10;
+}
+
+.login-page {
+    position: absolute;
+    top : 20%;
+    left : 30%;
+    right : 30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 20px;
+    background-color: black;
+    font-family: Poppins;
+    height: 50vh;
+    padding: 20px;
+}
+
+.login-page h1 {
+    text-align: center;
+    color : white;
+    overflow: hidden;
+    z-index: 20;
+}
+
+.login_side {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+}
+
+.slider {
+    top : 0;
+    left : 0;
+    z-index : 22;
+    position: absolute;
+    height: 100%;
+    width : 50%;
+    background-color: #00b577;
+    position: absolute;
+    transition: transform 0.5s ease;
+}
+
+.slider-btn {
+    position: absolute;
+    top:42%;
+    bottom: 42%;
+    left : 30%;
+    right : 30%;
+    border: none;
+    border-radius: 20px;   
+    padding: 10px; 
+    font-size: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_side form {
+    margin-top: 50px;
+}
+
+.signup_side form {
+    margin-top: 30px;
+}
+
+.input_cont {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    gap : 10px;
+    border: 1px solid white;
+}
+
+.img_cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input_cont img {
+    height: 30px;
+    width : 35px;
+}
+
+.input_field {
+    z-index: 10;
+}
+
+input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    height : 30px;
+    color:white;
+}
+
+.login-btn,.signup-btn {
+    padding: 10px;
+    border-radius: 15px;
+    border : none;
+    background-color: white;
+    margin-top: 50px;
+    width : 150px;
+}
+
+.login_footer {
+    position: absolute;
+    bottom: 20px;
+}
+
+.icon-handles {
+    display: flex;
+    gap : 20px;
+}
+
+.icon-handles img {
+    height: 30px;
+
+}
+@media only screen and (max-width: 850px) {
+    .message_box {
+        width : 400px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .message_box {
+        width : 250px;
+        height: 300px;
+        font-size: 15px;
+    }
+
+    .head_2 {
+        font-size: 25px;
+    }
+}
+
 @media only screen and (max-width: 1050px) {
     .grid_1 {
         display: flex;
@@ -388,6 +534,14 @@
     }
     .features > h3 {
         font-size: 20px;
+    }
+
+    .contact {
+        flex-direction: column;
+    }
+
+    .message_box {
+        width : 400px;
     }
 }
 

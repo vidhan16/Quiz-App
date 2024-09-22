@@ -44,3 +44,19 @@ for(let i = 0 ; i < topics.length ; i++)
         }, 500);
     })
 }
+
+let sliderBtn = document.querySelector('.slider-btn');
+let slidingWindow = document.querySelector('.slider')
+
+let sliderToggle = 0;
+sliderBtn.addEventListener('click',()=>{
+    if(!sliderToggle)
+    {
+        slidingWindow.style.transform = "translate(100%, 0)";
+        sliderToggle = 1;
+    }
+    else{
+        slidingWindow.style.transform = "translate(0, 0)";
+        sliderToggle = 0;
+    }
+})
