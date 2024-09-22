@@ -6,11 +6,6 @@ var typed = new Typed(".auto-type", {
     loop : true
 })
 
-let loginButton = document.querySelector('.login-button');
-loginButton.addEventListener('click',()=>{
-    window.location.href = './frontend/login.html';
-})
-
 var option_button = document.querySelector('.right > :nth-child(2)');
 var more_options = document.querySelector('.more-options');
 console.log(more_options);
@@ -59,4 +54,19 @@ sliderBtn.addEventListener('click',()=>{
         slidingWindow.style.transform = "translate(0, 0)";
         sliderToggle = 0;
     }
+})
+
+let loginOpen = document.querySelectorAll('.login-button');
+let loginWindow = document.querySelector('.auth_parent');
+for(let i = 0 ; i < loginOpen.length ; i++)
+{
+    loginOpen[i].addEventListener('click',()=>{
+        loginWindow.style.display = "block";
+    })
+}
+
+let closeButton = document.querySelector('.cross-button');
+closeButton.addEventListener('click',()=>{
+    loginWindow.style.display = "none";
+    document.querySelector('body').style.overflow="visible";
 })
