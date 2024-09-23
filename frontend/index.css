@@ -399,6 +399,7 @@
     flex-direction: column;
     position: relative;
     align-items: center;
+    height: 100%;
 }
 
 .slider {
@@ -446,6 +447,7 @@
     width: 80%;
     gap : 10px;
     border: 1px solid white;
+    padding: 5px;
 }
 
 .img_cont {
@@ -455,8 +457,8 @@
 }
 
 .input_cont img {
-    height: 30px;
-    width : 35px;
+    height: 1.4vw;
+    width : 2.2vw;
 }
 
 .input_field {
@@ -476,7 +478,7 @@ input {
     border-radius: 15px;
     border : none;
     background-color: white;
-    margin-top: 50px;
+    margin-top: 40px;
     width : 150px;
 }
 
@@ -487,6 +489,8 @@ input {
 
 .icon-handles {
     display: flex;
+    width : 100%;
+    justify-content: center;
     gap : 20px;
 }
 
@@ -494,9 +498,79 @@ input {
     height: 30px;
 
 }
+
+.already_login {
+    border: none;
+    color:white;
+    background-color: transparent;
+    text-decoration: underline;
+    font-size: 15px;
+    margin:3px;
+    display: none;
+}
+
+.not_logged {
+    border: none;
+    color:white;
+    background-color: transparent;
+    font-size: 15px;
+    margin:3px;
+    display: none;
+}
+
+.not_logged span{
+    text-decoration: underline;
+}
+
+.auth-success{
+    background-color: rgb(50, 50, 50);
+    color : white;
+    padding:10px;
+    border-radius: 20px;
+    position: absolute;
+    top : 10%;
+    left : 40%;
+    right : 40%;
+    z-index : 1;
+    text-align: center;
+    display: none;
+}
+
+@media only screen and (max-width: 1400px) {
+    .login-page {
+        left : 20%;
+        right : 20%;
+    }
+}
+
 @media only screen and (max-width: 850px) {
     .message_box {
         width : 400px;
+    }
+
+    .login-page {
+        display: block;
+    }
+
+    .slider {
+        display: none;
+    }
+
+    .login_side {
+        display: none;
+    }
+
+    .input_cont img {
+        height: 4vw;
+        width: 7vw;
+    }
+
+    .already_login {
+        display: block;
+    }
+
+    .not_logged {
+        display: block;
     }
 }
 
@@ -519,6 +593,11 @@ input {
         width : 50vw;
         height : 90vw;
         gap: 20px;
+    }
+
+    .login-page {
+        left : 15%;
+        right : 15%;
     }
 }
 
