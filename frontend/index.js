@@ -110,9 +110,24 @@ function register_user(emailInput, userInput, passInput) {
         password: passInput
     };
 
+    for(let i = 0 ; i < oldUser.length ; i++)
+    {
+        if(oldUser[i].username == userInput)
+        {
+            document.querySelector('.warning3').style.display="block";
+            document.querySelector('.warning3').textContent = "User Exists.";
+            document.querySelector('.signup_side form').children[1].style.border="1px solid red";
+            return;
+        }
+    }
     oldUser.push(user);
     
     localStorage.setItem('users', JSON.stringify(oldUser));
+    document.querySelector('.auth-success').textContent = "User Registered Successfully..";
+    authenticate_user(userInput,passInput);
+    document.querySelector('.emailid_signup').value="";
+    userInput = document.querySelector('.username_signup').value="";
+    passInput = document.querySelector('.password_signup').value="";
 }
 
 
@@ -123,7 +138,30 @@ signupAuth.addEventListener('click',(e)=>{
     let passInput = document.querySelector('.password_signup').value;
     if(emailInput!=""  && userInput!="" && passInput != "" )
     {
+        document.querySelector('.signup_side form').children[0].style.border="1px solid white";
+        document.querySelector('.signup_side form').children[1].style.border="1px solid white";
+        document.querySelector('.signup_side form').children[2].style.border="1px solid white";
+        document.querySelector('.warning3').style.display="none";
         register_user(emailInput,userInput,passInput);
+    }
+
+    else {
+        document.querySelector('.warning3').style.display="block";
+        document.querySelector('.warning3').textContent = "*Fields are empty";
+        if(emailInput == "")
+        {
+            document.querySelector('.signup_side form').children[0].style.border="1px solid red";
+        }
+    
+        if(userInput == "")
+        {
+            document.querySelector('.signup_side form').children[1].style.border="1px solid red";
+        }
+    
+        if(passInput == "")
+        {
+            document.querySelector('.signup_side form').children[2].style.border="1px solid red";
+        }
     }
 })
 
@@ -133,10 +171,6 @@ function authenticate_user(userInput,passInput)
     let storedUsers = JSON.parse(localStorage.getItem('users'));
     for(let i = 0 ; i < storedUsers.length ; i++)
     {
-        console.log(userInput);
-        console.log(storedUsers[i].username);
-        console.log(passInput);
-        console.log(storedUsers[i].password);
         if(storedUsers[i].username == userInput && storedUsers[i].password == passInput)
         {
             loginWindow.style.display="none";
@@ -151,7 +185,8 @@ function authenticate_user(userInput,passInput)
     console.log("Incorrect");
 }
 
-loginAuth.addEventListener('click',()=>{
+loginAuth.addEventListener('click',(e)=>{
+    e.preventDefault();
     let userInput = document.querySelector('.username_login').value;
     let passInput = document.querySelector('.password_login').value;
     if(userInput!=""  && passInput != "")
