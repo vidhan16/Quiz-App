@@ -66,9 +66,9 @@ function showQuestion()
     let randomno = Math.floor(Math.random() * 4);
     optionsArr[randomno].innerHTML = correctAnswer;
     let it = 0;
+    q_index.textContent = `Question ${questionIndex + 1} of ${questions.length}`;
     for(let i = 0 ; i < 4 ; i++)
     {
-
         if(i != randomno)
         {
             optionsArr[i].innerHTML = incorrectAnswers[it++];
@@ -85,6 +85,25 @@ function showQuestion()
         {
             optionsArr[j].style.backgroundColor = "white";
             optionsArr[j].style.color = "black";
+        }
+    }
+
+    if (selectedOptions[questionIndex] !== -1) {
+        const selectedOption = optionsArr[selectedOptions[questionIndex]];
+        if (selectedOption.textContent === correctAnswer) {
+            selectedOption.style.backgroundColor = "#00a86d"; // Green for correct
+            selectedOption.style.color = "white";
+        } else {
+            selectedOption.style.backgroundColor = "red"; // Red for incorrect
+            selectedOption.style.color = "white";
+
+            // Highlight the correct answer
+            for (let option of optionsArr) {
+                if (option.textContent === correctAnswer) {
+                    option.style.backgroundColor = "#00a86d"; // Green for correct
+                    option.style.color = "white";
+                }
+            }
         }
     }
 }
@@ -106,7 +125,7 @@ function next()
     }
     else if(questionIndex == questions.length-1 && shown == 1)
     {
-        window.location.href = '../index.html';
+        document.querySelector('.scoreboard').style.visibility = "visible";
     }
     questionIndex++;
     showQuestion();
@@ -168,4 +187,6 @@ for(let i = 0 ; i < optionsArr.length ; i++)
 reviewBtn = document.querySelector('.review_questions');
 reviewBtn.addEventListener('click',()=>{
     document.querySelector('.scoreboard').style.visibility = "hidden";
-})
+    questionIndex = 0;
+    showQuestion();
+});

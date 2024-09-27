@@ -175,6 +175,20 @@ body {
     border: 2px solid white;
 }
 
+.q_index {
+    background-color: #00a86d;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.correct_option{
+    background-color: #00a86d;
+}
+
+.incorrect_option {
+    background-color: red;
+}
 @media only screen and (max-width: 850px) {
     .q_content {
         display: flex;
