@@ -1,17 +1,3 @@
-window.addEventListener('DOMContentLoaded', () => {
-    // Load the loader HTML
-    fetch('glassloader.html')
-        .then(response => response.text())
-        .then(html => {
-            document.body.insertAdjacentHTML('afterbegin', html);
-            setTimeout(() => {
-                document.querySelector('.loader-body').style.display = 'none';
-                document.querySelector('.container').style.display = 'block';
-                document.querySelector('.cross-x').style.display = 'block';
-                triggerAnimaitons() ;
-            }, 2000);
-        });
-});
 
 let categoryCount = localStorage.getItem('category');
 let correctAnswer = "";
@@ -19,6 +5,7 @@ let questionIndex = 0;
 let questions = [];
 let totalPoints = [0,0,0,0,0];
 let selectedOptions = [-1,-1,-1,-1,-1];
+let shown = 0;
 
 
 let categories = {
@@ -69,6 +56,7 @@ prevButton.addEventListener('click',()=>{
     prev();
 })
 
+let q_index = document.querySelector('.q_index');
 let optionsArr = [option1,option2,option3,option4];
 function showQuestion()
 {
@@ -80,6 +68,7 @@ function showQuestion()
     let it = 0;
     for(let i = 0 ; i < 4 ; i++)
     {
+
         if(i != randomno)
         {
             optionsArr[i].innerHTML = incorrectAnswers[it++];
@@ -101,7 +90,7 @@ function showQuestion()
 }
 function next()
 {
-    if(questionIndex == questions.length-1)
+    if(questionIndex == questions.length-1 && shown == 0)
     {
         let sum = 0;
         for(let i = 0 ; i < totalPoints.length ; i++)
@@ -112,7 +101,12 @@ function next()
         document.querySelector('.scoredPoints').textContent=` ${sum}`;
         document.querySelector('.correctAnsCount').textContent=` ${sum/10}`;
         document.querySelector('.incorrectAnsCount').textContent=` ${5 - (sum/10)}`;
+        shown = 1;
         return;
+    }
+    else if(questionIndex == questions.length-1 && shown == 1)
+    {
+        window.location.href = '../index.html';
     }
     questionIndex++;
     showQuestion();
@@ -170,3 +164,8 @@ for(let i = 0 ; i < optionsArr.length ; i++)
         console.log(selectedOptions);
     })
 }
+
+reviewBtn = document.querySelector('.review_questions');
+reviewBtn.addEventListener('click',()=>{
+    document.querySelector('.scoreboard').style.visibility = "hidden";
+})
