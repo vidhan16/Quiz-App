@@ -58,12 +58,19 @@ prevButton.addEventListener('click',()=>{
 
 let q_index = document.querySelector('.q_index');
 let optionsArr = [option1,option2,option3,option4];
+
+let randomArr = [0,0,0,0,0];
+for(let i = 0 ; i < 5 ; i++)
+{
+    randomArr[i] = Math.floor(Math.random() * 4);
+}
+
 function showQuestion()
 {
     display_question.textContent = `${questions[questionIndex].question}`;
     correctAnswer = `${questions[questionIndex].correct_answer}`;
     let incorrectAnswers = questions[questionIndex].incorrect_answers;
-    let randomno = Math.floor(Math.random() * 4);
+    let randomno = randomArr[questionIndex];
     optionsArr[randomno].innerHTML = correctAnswer;
     let it = 0;
     q_index.textContent = `Question ${questionIndex + 1} of ${questions.length}`;
@@ -88,20 +95,16 @@ function showQuestion()
         }
     }
 
-    if (selectedOptions[questionIndex] !== -1) {
-        const selectedOption = optionsArr[selectedOptions[questionIndex]];
-        if (selectedOption.textContent === correctAnswer) {
-            selectedOption.style.backgroundColor = "#00a86d"; // Green for correct
-            selectedOption.style.color = "white";
-        } else {
-            selectedOption.style.backgroundColor = "red"; // Red for incorrect
-            selectedOption.style.color = "white";
-
-            // Highlight the correct answer
-            for (let option of optionsArr) {
-                if (option.textContent === correctAnswer) {
-                    option.style.backgroundColor = "#00a86d"; // Green for correct
-                    option.style.color = "white";
+    if(shown)
+    {
+        if(optionsArr[selectedOptions[questionIndex]].textContent != correctAnswer)
+        {
+            optionsArr[selectedOptions[questionIndex]].style.backgroundColor="red";
+            for(let i = 0 ; i < 4 ; i++)
+            {
+                if(optionsArr[i].textContent == correctAnswer)
+                {
+                    optionsArr[i].style.backgroundColor="#00a86d";
                 }
             }
         }
